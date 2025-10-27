@@ -182,6 +182,15 @@
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
+    min-height: 420px;
+    display: flex;
+    align-items: center;
+}
+
+/* Ensure hero side image stays within a nice height */
+.hero-illustration {
+    max-height: 340px;
+    width: auto;
 }
 
 .carousel-item {
@@ -312,11 +321,27 @@
 }
 
 .fruite .fruite-item .fruite-img img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
     transition: 0.5s;
 }
 
 .fruite .fruite-item .fruite-img img:hover {
     transform: scale(1.3);
+}
+
+/* Fruit category badge to match screenshots */
+.fruite .fruite-item .fruite-cate {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: var(--bs-warning);
+    color: var(--bs-white);
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
 }
 /*** Fruits End ***/
 
@@ -342,6 +367,23 @@
     width: 100%;
     object-fit: cover;
     transition: 0.5s;
+}
+
+/* Vegetable thumbs and home banner illustration */
+.veg-thumb {
+    height: 120px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.banner-illustration {
+    max-height: 200px;
+    width: auto;
+}
+
+@media (max-width: 992px) {
+    .hero-illustration { max-height: 280px; }
+    .banner-illustration { max-height: 160px; }
 }
 
 .vesitable .vesitable-item .vesitable-img img:hover {
