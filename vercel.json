@@ -3,11 +3,11 @@
   "builds": [
     {
       "src": "fruitables/wsgi.py",
-      "use": "@vercel/python",
-      "config": { 
-        "maxLambdaSize": "15mb",
-        "runtime": "python3.9"
-      }
+      "use": "@vercel/python"
+    },
+    {
+      "src": "build_files.sh",
+      "use": "@vercel/static-build"
     }
   ],
   "routes": [
@@ -17,7 +17,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/fruitables/wsgi.py"
+      "dest": "fruitables/wsgi.py"
     }
   ]
 }
