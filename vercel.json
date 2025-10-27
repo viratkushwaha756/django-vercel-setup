@@ -1,9 +1,19 @@
-{
-  "version": 2,
-  "builds": [
-    { "src": "index.py", "use": "@vercel/python" }
-  ],
-  "routes": [
-    { "src": "/(.*)", "dest": "index.py" }
-  ]
+﻿{
+    "version": 2,
+    "builds": [
+        {
+            "src": "fruitables/wsgi.py",
+            "use": "@vercel/python"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/static/(.*)",
+            "dest": "/static/$1"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "fruitables/wsgi.py"
+        }
+    ]
 }
