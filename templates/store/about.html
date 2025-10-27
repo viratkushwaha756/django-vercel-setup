@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}About Us - Fruitables{% endblock %}
+
+{% block content %}
+<div class="container-fluid py-5 mt-5">
+    <div class="container py-5">
+        <div class="row g-5">
+            <div class="col-lg-6">
+                <div class="row g-4 align-items-center">
+                    <div class="col-md-6 text-start">
+                        <img class="img-fluid rounded" src="{% static 'img/featur-1.jpg' %}" alt="">
+                    </div>
+                    <div class="col-md-6 text-start">
+                        <img class="img-fluid rounded" src="{% static 'img/featur-2.jpg' %}" alt="">
+                    </div>
+                    <div class="col-md-6 text-start">
+                        <img class="img-fluid rounded" src="{% static 'img/featur-3.jpg' %}" alt="">
+                    </div>
+                    <div class="col-md-6 text-start">
+                        <img class="img-fluid rounded" src="{% static 'img/single-item.jpg' %}" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <h1 class="mb-4">Trusted By 2000+ Clients</h1>
+                <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
+                <div class="row gy-4 mb-4">
+                    <div class="col-sm-6">
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-leaf text-primary me-3 fa-2x"></i>
+                            <h6 class="mb-0">Organic Products</h6>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-star text-primary me-3 fa-2x"></i>
+                            <h6 class="mb-0">Quality Products</h6>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-shipping-fast text-primary me-3 fa-2x"></i>
+                            <h6 class="mb-0">Fast Delivery</h6>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-headset text-primary me-3 fa-2x"></i>
+                            <h6 class="mb-0">24/7 Support</h6>
+                        </div>
+                    </div>
+                </div>
+                <a href="{% url 'shop' %}" class="btn border border-secondary text-primary rounded-pill px-4 py-3">Explore More</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

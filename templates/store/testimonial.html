@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Testimonials - Fruitables{% endblock %}
+
+{% block content %}
+<!-- Single Page Header start -->
+<div class="container-fluid page-header py-5">
+    <h1 class="text-center text-white display-6">Customer Testimonials</h1>
+    <ol class="breadcrumb justify-content-center mb-0">
+        <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+        <li class="breadcrumb-item active text-white">Testimonials</li>
+    </ol>
+</div>
+<!-- Single Page Header End -->
+
+<!-- Testimonials Start -->
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="row g-5">
+            <div class="col-lg-6">
+                <div class="testimonial-item text-center">
+                    <div class="testimonial-img mb-4">
+                        <img src="{% static 'img/testimonial-1.jpg' %}" class="img-fluid rounded-circle" alt="Customer" style="width: 120px; height: 120px; object-fit: cover;">
+                    </div>
+                    <div class="testimonial-content">
+                        <h5 class="mb-3">Sarah Johnson</h5>
+                        <p class="text-muted mb-3">"The quality of fruits and vegetables from Fruitables is exceptional. Fresh, organic, and delivered right to my doorstep. Highly recommended!"</p>
+                        <div class="text-warning">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="testimonial-item text-center">
+                    <div class="testimonial-img mb-4">
+                        <img src="{% static 'img/avatar.jpg' %}" class="img-fluid rounded-circle" alt="Customer" style="width: 120px; height: 120px; object-fit: cover;">
+                    </div>
+                    <div class="testimonial-content">
+                        <h5 class="mb-3">Michael Chen</h5>
+                        <p class="text-muted mb-3">"I've been shopping here for months and the service is consistently excellent. The exotic fruits selection is amazing!"</p>
+                        <div class="text-warning">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row g-5 mt-3">
+            <div class="col-lg-6">
+                <div class="testimonial-item text-center">
+                    <div class="testimonial-img mb-4">
+                        <img src="{% static 'img/best-product-1.jpg' %}" class="img-fluid rounded-circle" alt="Customer" style="width: 120px; height: 120px; object-fit: cover;">
+                    </div>
+                    <div class="testimonial-content">
+                        <h5 class="mb-3">Emily Rodriguez</h5>
+                        <p class="text-muted mb-3">"The organic vegetables are so fresh and the prices are reasonable. My family loves the quality!"</p>
+                        <div class="text-warning">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="testimonial-item text-center">
+                    <div class="testimonial-img mb-4">
+                        <img src="{% static 'img/best-product-2.jpg' %}" class="img-fluid rounded-circle" alt="Customer" style="width: 120px; height: 120px; object-fit: cover;">
+                    </div>
+                    <div class="testimonial-content">
+                        <h5 class="mb-3">David Thompson</h5>
+                        <p class="text-muted mb-3">"Fast delivery and excellent customer service. The fruits are always ripe and delicious!"</p>
+                        <div class="text-warning">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Testimonials End -->
+{% endblock %}

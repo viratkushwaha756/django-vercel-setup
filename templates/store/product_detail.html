@@ -1,0 +1,167 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}{{ product.name }} - Fruitables{% endblock %}
+
+{% block content %}
+<!-- Single Page Header start -->
+<div class="container-fluid page-header py-5">
+    <h1 class="text-center text-white display-6">{{ product.name }}</h1>
+    <ol class="breadcrumb justify-content-center mb-0">
+        <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'shop' %}">Shop</a></li>
+        <li class="breadcrumb-item active text-white">{{ product.name }}</li>
+    </ol>
+</div>
+<!-- Single Page Header End -->
+
+<!-- Product Detail Start -->
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="row g-4">
+            <!-- Product Image -->
+            <div class="col-lg-6">
+                <div class="product-image-container">
+                    <img src="{{ product.get_image_url }}" class="img-fluid rounded" alt="{{ product.name }}">
+                    {% if product.discount_percentage > 0 %}
+                    <div class="discount-badge">
+                        <span class="badge bg-danger fs-6">{{ product.discount_percentage }}% OFF</span>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            
+            <!-- Product Info -->
+            <div class="col-lg-6">
+                <div class="product-info">
+                    <h2 class="mb-3">{{ product.name }}</h2>
+                    <p class="text-muted mb-3">{{ product.description }}</p>
+                    
+                    <div class="price-section mb-4">
+                        {% if product.discount_percentage > 0 %}
+                        <div class="d-flex align-items-center">
+                            <span class="text-danger fs-4 me-3"><del>${{ product.price }}</del></span>
+                            <span class="text-primary fs-2 fw-bold">${{ product.current_price }}</span>
+                        </div>
+                        {% else %}
+                        <span class="text-primary fs-2 fw-bold">${{ product.current_price }}</span>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="product-meta mb-4">
+                        <p><strong>Category:</strong> {{ product.category.name }}</p>
+                        <p><strong>Stock:</strong> {% if product.stock > 0 %}{{ product.stock }} available{% else %}Out of stock{% endif %}</p>
+                    </div>
+                    
+                    {% if user.is_authenticated %}
+                    <form method="post" action="{% url 'cart' %}" class="mb-4">
+                        {% csrf_token %}
+                        <input type="hidden" name="product_id" value="{{ product.id }}">
+                        <input type="hidden" name="action" value="add">
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-lg" {% if product.stock == 0 %}disabled{% endif %}>
+                                <i class="fa fa-shopping-bag me-2"></i>Add to Cart
+                            </button>
+                        </div>
+                    </form>
+                    {% else %}
+                    <div class="mb-4">
+                        <a href="{% url 'login' %}" class="btn btn-primary btn-lg w-100">
+                            <i class="fa fa-sign-in-alt me-2"></i>Login to Add to Cart
+                        </a>
+                    </div>
+                    {% endif %}
+                    
+                    <div class="product-features">
+                        <h5 class="mb-3">Product Features:</h5>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-success me-2"></i>Fresh and Organic</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Quality Guaranteed</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Fast Delivery</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Best Price</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Reviews Section -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <h3 class="mb-4">Customer Reviews</h3>
+                {% if product.reviews.all %}
+                <div class="row">
+                    {% for review in product.reviews.all %}
+                    <div class="col-md-6 mb-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between mb-2">
+                                    <h6 class="card-title">{{ review.user.username }}</h6>
+                                    <div class="text-warning">
+                                        {% for i in "12345" %}
+                                        {% if forloop.counter <= review.rating %}
+                                        <i class="fas fa-star"></i>
+                                        {% else %}
+                                        <i class="far fa-star"></i>
+                                        {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <p class="card-text">{{ review.comment }}</p>
+                                <small class="text-muted">{{ review.created_at|date:"M d, Y" }}</small>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <p class="text-muted">No reviews yet. Be the first to review this product!</p>
+                {% endif %}
+                
+                {% if user.is_authenticated %}
+                <div class="mt-4">
+                    <h5>Write a Review</h5>
+                    <form method="post" action="{% url 'product_detail' product.slug %}">
+                        {% csrf_token %}
+                        {{ review_form|crispy }}
+                        <button type="submit" class="btn btn-primary">Submit Review</button>
+                    </form>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Product Detail End -->
+{% endblock %}
+
+{% block extra_css %}
+<style>
+.product-image-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.discount-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.product-info {
+    padding: 20px;
+}
+
+.price-section {
+    border-bottom: 2px solid #f8f9fa;
+    padding-bottom: 20px;
+}
+
+.product-features ul li {
+    margin-bottom: 10px;
+}
+</style>
+{% endblock %}

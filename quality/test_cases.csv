@@ -1,0 +1,67 @@
+Test Case ID,Test Case Name,Module,Priority,Test Type,Description,Preconditions,Test Steps,Expected Result,Test Data,Status,Executed By,Execution Date,Comments
+TC-001,User Registration with Valid Data,Authentication,High,Functional,Verify user can register with valid information,Application is accessible and registration page is loaded,1. Navigate to registration page
+2. Enter valid username
+3. Enter valid email
+4. Enter valid password
+5. Confirm password
+6. Click register button,User account is created successfully and user is logged in,Username: testuser123
+Email: test@example.com
+Password: TestPass123!,Pass,QA Team,2024-11-10,Test passed successfully
+TC-002,User Registration with Invalid Email,Authentication,High,Functional,Verify registration fails with invalid email format,Application is accessible and registration page is loaded,1. Navigate to registration page
+2. Enter valid username
+3. Enter invalid email format
+4. Enter valid password
+5. Confirm password
+6. Click register button,Registration fails with validation error message,Username: testuser123
+Email: invalid-email
+Password: TestPass123!,Pass,QA Team,2024-11-10,Validation error displayed correctly
+TC-003,User Login with Valid Credentials,Authentication,High,Functional,Verify user can login with valid credentials,User account exists and is active,1. Navigate to login page
+2. Enter valid username
+3. Enter valid password
+4. Click login button,User is logged in successfully and redirected to home page,Username: testuser123
+Password: TestPass123!,Pass,QA Team,2024-11-10,Login successful
+TC-004,User Login with Invalid Credentials,Authentication,High,Functional,Verify login fails with invalid credentials,Application is accessible and login page is loaded,1. Navigate to login page
+2. Enter invalid username
+3. Enter invalid password
+4. Click login button,Login fails with error message,Username: invaliduser
+Password: wrongpass,Fail,QA Team,2024-11-10,Error message not displayed properly
+TC-005,Product Search Functionality,Shop,High,Functional,Verify product search returns relevant results,Products are available in the system,1. Navigate to shop page
+2. Enter search term in search box
+3. Click search button,Relevant products are displayed,Search term: apple,Fail,QA Team,2024-11-10,No results returned for valid search
+TC-006,Add Product to Cart,Shop,High,Functional,Verify product can be added to cart,User is logged in and products are available,1. Navigate to shop page
+2. Click add to cart button on any product,Product is added to cart and cart count increases,Product: Fresh Apples,Fail,QA Team,2024-11-10,Add to cart button not working
+TC-007,Update Cart Item Quantity,Cart,High,Functional,Verify cart item quantity can be updated,Cart contains items,1. Navigate to cart page
+2. Change quantity of any item
+3. Click update button,Item quantity is updated and total is recalculated,Quantity: 3,Pass,QA Team,2024-11-10,Quantity updated successfully
+TC-008,Remove Item from Cart,Cart,High,Functional,Verify item can be removed from cart,Cart contains items,1. Navigate to cart page
+2. Click remove button for any item,Item is removed from cart and total is recalculated,Item: Fresh Apples,Pass,QA Team,2024-11-10,Item removed successfully
+TC-009,Checkout Process with Valid Data,Checkout,High,Functional,Verify complete checkout process with valid data,Cart contains items and user is logged in,1. Navigate to checkout page
+2. Fill shipping information
+3. Fill payment information
+4. Click place order button,Order is placed successfully and confirmation is shown,Shipping: John Doe
+Payment: 4111111111111111,Fail,QA Team,2024-11-10,Order placement failed
+TC-010,Checkout Form Validation,Checkout,High,Functional,Verify checkout form validation works,User is on checkout page,1. Leave required fields empty
+2. Click place order button,Validation errors are displayed and order is not placed,Empty fields,Fail,QA Team,2024-11-10,Validation not working
+TC-011,Product Filter by Category,Shop,Medium,Functional,Verify products can be filtered by category,Products are available in different categories,1. Navigate to shop page
+2. Select category from filter dropdown,Products are filtered by selected category,Category: Fruits,Fail,QA Team,2024-11-10,Filter not working
+TC-012,Product Sort by Price,Shop,Medium,Functional,Verify products can be sorted by price,Products are available with different prices,1. Navigate to shop page
+2. Select sort option by price,Products are sorted by price in ascending order,Sort: Price Low to High,Fail,QA Team,2024-11-10,Sorting not working
+TC-013,Product Detail Page Display,Product,Medium,Functional,Verify product detail page displays correctly,Product exists,1. Navigate to shop page
+2. Click on any product,Product detail page loads with all information,Product: Fresh Apples,Fail,QA Team,2024-11-10,Images not displaying
+TC-014,User Profile Update,Profile,Medium,Functional,Verify user profile can be updated,User is logged in,1. Navigate to profile page
+2. Update profile information
+3. Click save button,Profile is updated successfully,Phone: 1234567890,Pass,QA Team,2024-11-10,Profile updated successfully
+TC-015,Product Review Submission,Product,Medium,Functional,Verify product review can be submitted,User is logged in and product exists,1. Navigate to product detail page
+2. Enter review rating and comment
+3. Click submit review,Review is submitted successfully,Rating: 5 stars
+Comment: Great product!,Fail,QA Team,2024-11-10,Review not submitted
+TC-016,Mobile Responsive Design,UI,High,Non-Functional,Verify application is responsive on mobile devices,Application is accessible on mobile,1. Open application on mobile device
+2. Navigate through different pages,All pages are properly displayed and functional on mobile,Mobile: iPhone 12,Pass,QA Team,2024-11-10,Responsive design working
+TC-017,Page Load Performance,Performance,Medium,Non-Functional,Verify page load times are acceptable,Application is accessible,1. Navigate to different pages
+2. Measure page load times,All pages load within 3 seconds,Load time: < 3 seconds,Pass,QA Team,2024-11-10,Performance acceptable
+TC-018,Cross Browser Compatibility,Compatibility,Medium,Non-Functional,Verify application works on different browsers,Application is accessible,1. Open application in different browsers
+2. Test core functionality,Application works consistently across browsers,Browsers: Chrome Firefox Safari,Pass,QA Team,2024-11-10,Compatibility good
+TC-019,Security - SQL Injection,Security,High,Non-Functional,Verify application is protected against SQL injection,Application is accessible,1. Enter SQL injection attempts in forms
+2. Observe application behavior,Application is protected against SQL injection,SQL: ' OR '1'='1,Pass,QA Team,2024-11-10,Security measures working
+TC-020,Security - XSS Protection,Security,High,Non-Functional,Verify application is protected against XSS attacks,Application is accessible,1. Enter XSS scripts in forms
+2. Observe application behavior,Application is protected against XSS attacks,XSS: <script>alert('XSS')</script>,Pass,QA Team,2024-11-10,Security measures working

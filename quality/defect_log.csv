@@ -1,0 +1,29 @@
+Defect ID,Title,Severity,Priority,Status,Assigned To,Reported By,Reported Date,Due Date,Resolution Date,Description,Steps to Reproduce,Expected Result,Actual Result,Root Cause,Resolution,Test Environment,Affected Module,Affected Version
+DEF-001,Login page not loading on mobile devices,High,High,Open,Dev Team,QA Team,2024-11-10,2024-11-15,,Login page fails to load on mobile devices with iOS Safari browser,1. Open iOS Safari browser
+2. Navigate to login page
+3. Observe page loading,Login page should load properly on all devices,Page shows blank screen with JavaScript errors,Responsive design issues with mobile viewport,Not resolved yet,Mobile Safari 17.0,Authentication,1.0.0
+DEF-002,Add to cart button not working,High,High,Open,Dev Team,QA Team,2024-11-10,2024-11-15,,Add to cart functionality fails when user is not logged in,1. Navigate to shop page without logging in
+2. Click add to cart button on any product
+3. Observe behavior,Product should be added to cart or user should be prompted to login,Button click does nothing and no error message is shown,Missing authentication check in cart service,Not resolved yet,Chrome 119,Shop/Cart,1.0.0
+DEF-003,Product search returns no results,Medium,Medium,Open,Dev Team,QA Team,2024-11-10,2024-11-20,,Product search functionality not working properly,1. Navigate to shop page
+2. Enter search term in search box
+3. Click search button,Search should return relevant products,No products are returned even for valid search terms,Search query not properly formatted,Not resolved yet,Chrome 119,Shop,1.0.0
+DEF-004,Checkout form validation not working,High,High,Open,Dev Team,QA Team,2024-11-10,2024-11-15,,Checkout form allows submission with empty required fields,1. Add product to cart
+2. Navigate to checkout page
+3. Leave required fields empty
+4. Click place order button,Form should show validation errors and prevent submission,Order is placed without validation errors,Missing client-side and server-side validation,Not resolved yet,Chrome 119,Checkout,1.0.0
+DEF-005,Product images not displaying,Medium,Medium,Open,Dev Team,QA Team,2024-11-10,2024-11-20,,Product images are not loading on product detail page,1. Navigate to any product detail page
+2. Observe product images,Product images should be displayed,Images show broken image placeholder,Incorrect image path configuration,Not resolved yet,Chrome 119,Product Detail,1.0.0
+DEF-006,Cart total calculation incorrect,High,High,Open,Dev Team,QA Team,2024-11-10,2024-11-15,,Cart total is not calculated correctly when multiple items are added,1. Add multiple products to cart with different quantities
+2. Navigate to cart page
+3. Check total calculation,Total should be sum of all item prices,Total shows incorrect amount,Incorrect calculation logic in cart service,Not resolved yet,Chrome 119,Cart,1.0.0
+DEF-007,User registration form validation,Medium,Medium,Open,Dev Team,QA Team,2024-11-10,2024-11-20,,User registration form allows invalid email addresses,1. Navigate to registration page
+2. Enter invalid email format
+3. Submit form,Form should show validation error for invalid email,Registration proceeds with invalid email,Missing email format validation,Not resolved yet,Chrome 119,Registration,1.0.0
+DEF-008,Product filter not working,Medium,Medium,Open,Dev Team,QA Team,2024-11-10,2024-11-20,,Product category filter does not filter products correctly,1. Navigate to shop page
+2. Select a category from filter dropdown
+3. Observe filtered results,Products should be filtered by selected category,All products are still displayed,Filter query not properly implemented,Not resolved yet,Chrome 119,Shop,1.0.0
+DEF-009,Order confirmation email not sent,Medium,Medium,Open,Dev Team,QA Team,2024-11-10,2024-11-20,,Order confirmation email is not sent after successful order placement,1. Complete order placement process
+2. Check email for confirmation,Order confirmation email should be sent,No email is received,Email service not configured,Not resolved yet,Chrome 119,Order,1.0.0
+DEF-010,Product reviews not displaying,Low,Low,Open,Dev Team,QA Team,2024-11-10,2024-11-25,,Product reviews are not displayed on product detail page,1. Navigate to product detail page
+2. Scroll to reviews section,Product reviews should be displayed,Reviews section is empty,Reviews not properly fetched from database,Not resolved yet,Chrome 119,Product Detail,1.0.0
